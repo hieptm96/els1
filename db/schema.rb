@@ -46,11 +46,13 @@ ActiveRecord::Schema.define(version: 20160702161946) do
   create_table "lessons", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.integer  "category_id", limit: 4
+    t.integer  "user_id",     limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
   add_index "lessons", ["category_id"], name: "index_lessons_on_category_id", using: :btree
+  add_index "lessons", ["user_id"], name: "index_lessons_on_user_id", using: :btree
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "followed_id", limit: 4
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 20160702161946) do
   add_foreign_key "activities", "users"
   add_foreign_key "answers", "words"
   add_foreign_key "lessons", "categories"
+  add_foreign_key "lessons", "users"
   add_foreign_key "results", "categories"
   add_foreign_key "results", "lessons"
   add_foreign_key "results", "users"

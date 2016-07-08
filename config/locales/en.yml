@@ -33,6 +33,12 @@ en:
     err: "error"
     title: "The form contains"
 
+  lessons:
+    do: "Do lesson"
+    error: "You have learned all word in this category"
+    failed_create: "Create failed!"
+    success_create: "Create successfully!"
+
   relationship:
     follow: "Follow"
     follower: "Follower"

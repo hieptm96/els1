@@ -14,4 +14,5 @@ class Word < ActiveRecord::Base
   scope :notlearned, ->(current_user_id){
     where("words.id not in (select word_id from results where user_id = ?)",
       current_user_id)}
+  scope :word_count, ->(category_id){where("category_id = ?",category_id).count}
 end
